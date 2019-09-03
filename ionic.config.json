@@ -1,5 +1,7 @@
 {
-  "name": "AppIonico",
-  "integrations": {},
+  "name": "angular",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

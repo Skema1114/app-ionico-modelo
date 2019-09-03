@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Buscador de CEP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (submit)="buscarCep()">
+    <ion-item>
+      <ion-input type="number" [(ngModel)]="termo" placeholder="Buscar..." name="termo"></ion-input>
+      <ion-icon name="search" (click)="buscarCep()"></ion-icon>
+    </ion-item>
+  </form>
+  <!-- SE TIVER RESULTADO ELE MOSTRA O CARD, SENÃO NÃO, É UMA DIRETIVA DE TEMPLATE -->
+  <ion-card *ngIf="resultado">
+    <ion-card-header>
+      <ion-card-title>Resultado para {{ resultado.cep }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{ resultado.localidade }} / {{ resultado.uf }} </ion-card-content>
+  </ion-card>
+</ion-content>
