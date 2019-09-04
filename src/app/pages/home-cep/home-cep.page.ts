@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CepService } from 'src/app/services/cep.service';
 import { ToastController } from '@ionic/angular';
+import { AlertaService } from 'src/app/services/alerta.service';
 
 @Component({
   selector: 'app-home-cep',
@@ -11,23 +12,22 @@ export class HomeCepPage implements OnInit {
   termo: string;
   resultado: any;
 
-  constructor(private cepService: CepService, private toast: ToastController) {}
+  constructor(private cepService: CepService, private alert: AlertaService) {}
 
-  public buscarCep() {
+  public async buscarCep() {
+    // ABRE A JANELA DO LOADING
+    const loader = await this.alert.loading({ message: 'buscando o cep...' });
     this.resultado = null;
-    this.cepService
-      .ConsultaCep(this.termo)
-      .subscribe(resposta => (this.resultado = resposta), erro => this.showError(erro.message));
-  }
-
-  public async showError(msg: string) {
-    const t = await this.toast.create({
-      message: msg,
-      duration: 3000,
-      closeButtonText: 'OK',
-      showCloseButton: true
-    });
-    t.present();
+    this.cepService.ConsultaCep(this.termo).subscribe(
+      resposta => {
+        loader.dismiss();
+        this.resultado = resposta;
+      },
+      error => {
+        loader.dismiss();
+        this.alert.toast({ message: error.message });
+      }
+    );
   }
 
   ngOnInit() {}

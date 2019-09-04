@@ -16,6 +16,11 @@
     <ion-card-header>
       <ion-card-title>Resultado para {{ resultado.cep }}</ion-card-title>
     </ion-card-header>
-    <ion-card-content> {{ resultado.localidade }} / {{ resultado.uf }} </ion-card-content>
+    <ion-card-content>
+      {{ resultado.localidade }} / {{ resultado.uf }}
+      <ion-button href="previsao/{{ resultado.localidade }}" expand="block">
+        Previsão do Tempo
+      </ion-button>
+    </ion-card-content>
   </ion-card>
 </ion-content>
