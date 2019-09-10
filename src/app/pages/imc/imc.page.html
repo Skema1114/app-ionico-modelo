@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora IMC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <h5>Calcular índice de massa corpórea(IMC)</h5>
+    </ion-row>
+
+    <form (submit)="calcularImc()">
+      <ion-row>
+        <ion-col size="10">
+          <ion-item>
+            <ion-label position="floating">Peso:</ion-label>
+            <ion-input type="number" [(ngModel)]="peso" name="peso"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item>
+            <ion-label position="stacked">kg</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10">
+          <ion-item>
+            <ion-label position="floating">Altura:</ion-label>
+            <ion-input type="number" [(ngModel)]="altura" name="altura"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item>
+            <ion-label position="stacked">m</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="calcularImc()" expand="block">Calcular IMC</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-row>
+      <ion-card *ngIf="resultado">
+        <ion-card-header>
+          <ion-card-title>Titulo</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>aqui vai apoarece o conteudo do imc do cara </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

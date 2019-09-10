@@ -2,9 +2,13 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-title>Previsão do Tempo</ion-title>
     </ion-buttons>
-    <ion-title>Previsão do Tempo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <h1>{{ resposta?.main.temp }}ºC</h1>
+  <p>{{ (resposta?.weather)[0].description }}</p>
+  <img [src]="icone" />
+</ion-content>
