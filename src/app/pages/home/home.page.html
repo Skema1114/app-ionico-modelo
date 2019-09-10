@@ -1,12 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>home</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/inicio-geral"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-button href="/suporte">Suporte</ion-button>
+    <ion-button href="/suporte">Suporte</ion-button>
 
-  <ion-button color="danger" (click)="irParaSuporte()">Suporte premium</ion-button>
+    <ion-button color="danger" (click)="irParaSuporte()">Suporte premium</ion-button>
 </ion-content>
