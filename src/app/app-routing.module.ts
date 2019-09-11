@@ -15,7 +15,8 @@ const routes: Routes = [
     path: 'inicio-geral',
     loadChildren: './pages/inicio-geral/inicio-geral.module#InicioGeralPageModule'
   },
-  { path: 'cep', loadChildren: './pages/cep/cep.module#CepPageModule' }
+  { path: 'cep', loadChildren: './pages/cep/cep.module#CepPageModule' },
+  { path: 'home-pipes', loadChildren: './pages/home-pipes/home-pipes.module#HomePipesPageModule' }
 ];
 
 @NgModule({

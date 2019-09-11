@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pipe App</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio-geral"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input type="number" [(ngModel)]="preco"> </ion-input>
+  </ion-item>
+
+  <form [formGroup]="formHome">
+    <ion-item>
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input formControlName="nome"></ion-input>
+      <ion-note
+        *ngIf="formHome.get('nome').dirty && formHome.get('nome').hasError('minlength')"
+        slot="end"
+        color="danger"
+      >
+        Minimo 3 letras
+      </ion-note>
+
+      <ion-note
+        *ngIf="formHome.get('nome').dirty && formHome.get('nome').hasError('required')"
+        slot="end"
+        color="danger"
+      >
+        campo obrigatorio
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor:</ion-label>
+      <ion-input formControlName="valor"></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-button (click)="testar()" color="dark" [disabled]="!formHome.valid">
+    OKAY
+  </ion-button>
+
+  <h1>
+    {{ preco }}
+  </h1>
+  <h1>
+    {{ preco | formata }}
+  </h1>
+  <h1>
+    {{ preco | formata: 2 }}
+  </h1>
+  <h1>
+    {{ preco | formata: 2 | currency }}
+  </h1>
+  <h1>
+    {{ preco | formata: 2 | currency: 'BRL' }}
+  </h1>
+</ion-content>
