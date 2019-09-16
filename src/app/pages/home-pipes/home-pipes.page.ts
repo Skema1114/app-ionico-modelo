@@ -13,9 +13,10 @@ export class HomePipesPage implements OnInit {
   // INjETAR NO CONSTRUTOR UMA REFERENCIA PRO FORM BUILDER
   constructor(private fb: FormBuilder) {
     this.formHome = fb.group({
-      nome: [['professor'], [[Validators.required, Validators.minLength(3)]]],
+      nome: [['professor'], [Validators.required, Validators.minLength(3)]],
       valor: [[], [Validators.required]]
     });
+    console.log(this.formHome);
   }
 
   public testar(): void {
